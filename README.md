@@ -18,6 +18,26 @@ This repository contains the node for the Lego EV3 for ROS.
 Early Demonstration (Recored some time ago): Driving with ROS Controller Diff Drive
 
 
-[![DiffDrive Controller Demonstration Video](http://img.youtube.com/vi/PqFPvFhTMqk/0.jpg)](http://www.youtube.com/watch?v=PqFPvFhTMqk) 
+[![DiffDrive Controller Demonstration Video](http://img.youtube.com/vi/PqFPvFhTMqk/0.jpg)](http://www.youtube.com/watch?v=PqFPvFhTMqk)
 
+## Typical workflow
 
+- **PC**
+
+```bash
+    roscore
+```
+
+- **EV3 Brick**
+
+```bash
+    ev3_manager
+```
+
+- **PC**
+
+For example, to run the motors controllers
+
+```bash
+    roslaunch h4r_ev3_launch motors.launch ev3_hostname:=ev3dev
+```
