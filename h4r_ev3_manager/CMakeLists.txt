@@ -13,7 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   joint_limits_interface
   control_toolbox
   h4r_ev3_control
-)  
+)
 
 
 ## System dependencies are found with CMake's conventions
@@ -106,8 +106,8 @@ find_package(Boost REQUIRED COMPONENTS system thread program_options )
 catkin_package(
   INCLUDE_DIRS include
 #  LIBRARIES h4r_ev3_ctrl
-  CATKIN_DEPENDS roscpp 
-#  roslib 
+  CATKIN_DEPENDS roscpp
+#  roslib
 #  message_runtime
 #  DEPENDS system_lib
 )
@@ -138,8 +138,8 @@ add_definitions(-std=c++11)
 #####################
 # H4R EV3 CTRL NODE #
 #####################
-add_executable(ev3_manager_node 
-src/${PROJECT_NAME}/ev3_ctrl_node.cpp  
+add_executable(ev3_manager_node
+src/${PROJECT_NAME}/ev3_ctrl_node.cpp
 src/${PROJECT_NAME}/Ev3HardwareInterface.cpp
 )
 
@@ -193,8 +193,8 @@ install(DIRECTORY launch
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 install(FILES
-    launch/ev3.launch
-    ctrl_cfg/ev3.yaml
+    launch/load.launch
+    ctrl_cfg/motors.yaml
     DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
