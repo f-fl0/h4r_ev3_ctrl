@@ -9,6 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   realtime_tools
   roscpp
   sensor_msgs
+  tf
   h4r_ev3_msgs
 )
 
@@ -22,7 +23,7 @@ include_directories(
 
 # Declare catkin package
 catkin_package(
-  CATKIN_DEPENDS controller_interface hardware_interface sensor_msgs realtime_tools h4r_ev3_msgs
+  CATKIN_DEPENDS controller_interface hardware_interface sensor_msgs realtime_tools tf h4r_ev3_msgs
   INCLUDE_DIRS include
   LIBRARIES ev3_control
   )
@@ -36,10 +37,10 @@ target_link_libraries(ev3_control ${catkin_LIBRARIES})
 
 add_library(ev3_controllers
   src/${PROJECT_NAME}/ev3_ultrasonic_controller.cpp include/${PROJECT_NAME}/ev3_ultrasonic_controller.h
-  src/${PROJECT_NAME}/ev3_gyro_controller.cpp       include/${PROJECT_NAME}/ev3_gyro_controller.h  
+  src/${PROJECT_NAME}/ev3_gyro_controller.cpp       include/${PROJECT_NAME}/ev3_gyro_controller.h
   src/${PROJECT_NAME}/ev3_touch_controller.cpp      include/${PROJECT_NAME}/ev3_touch_controller.h
-  src/${PROJECT_NAME}/ev3_color_controller.cpp      include/${PROJECT_NAME}/ev3_color_controller.h  
-  src/${PROJECT_NAME}/ev3_infrared_controller.cpp      include/${PROJECT_NAME}/ev3_infrared_controller.h  
+  src/${PROJECT_NAME}/ev3_color_controller.cpp      include/${PROJECT_NAME}/ev3_color_controller.h
+  src/${PROJECT_NAME}/ev3_infrared_controller.cpp      include/${PROJECT_NAME}/ev3_infrared_controller.h
 )
 target_link_libraries(ev3_controllers ${catkin_LIBRARIES})
 
@@ -48,7 +49,7 @@ target_link_libraries(ev3_controllers ${catkin_LIBRARIES})
 # Install
 install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION})
-  
+
 install(TARGETS ev3_control ev3_controllers
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
